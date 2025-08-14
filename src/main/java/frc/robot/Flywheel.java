@@ -73,11 +73,6 @@ public class Flywheel extends SubsystemBase {
     motor_1.getConfigurator().apply(config_1);  
     motor_2.getConfigurator().apply(config_2);
 
-    Command run = this.runEnd(()->{
-      motor_1.setControl(motionmagicrequest_velocity.withVelocity(250));
-      motor_2.setControl(motionmagicrequest_velocity.withVelocity(250));
-    },()->{motor_1.stopMotor();motor_2.stopMotor();});
-
     SmartDashboard.putData("Run Motor", run);
 
     HumanControls.LT.onTrue(run);
@@ -101,6 +96,12 @@ public class Flywheel extends SubsystemBase {
   public double getVelocity_2(){
     return velocity_2.refresh().getValueAsDouble();
   }
+
+  
+  public Command run = this.runEnd(()->{
+    motor_1.setControl(motionmagicrequest_velocity.withVelocity(250));
+    motor_2.setControl(motionmagicrequest_velocity.withVelocity(250));
+  },()->{motor_1.stopMotor();motor_2.stopMotor();});
 
 
 
