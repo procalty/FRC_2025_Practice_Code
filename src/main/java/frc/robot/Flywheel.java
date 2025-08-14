@@ -80,7 +80,7 @@ public class Flywheel extends SubsystemBase {
 
     SmartDashboard.putData("Run Motor", run);
 
-    HumanControls.A.onTrue(run);
+    HumanControls.LT.onTrue(run);
 
 
 
